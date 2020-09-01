@@ -11,23 +11,15 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignField(Product, default=None)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="img/")
 
 
 class CartItem(models.Model):
-    product = models.ForeignKey(Product, default=None)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     amount = models.IntegerField()
 
 
-class Address(models.Model):
-    house_num = models.CharField(max_length=5)
-    street = models.CharField(max_length=40)
-    city = models.CharField(max_length=20)
-    state = models.CharField(max_length=4)
-    phone = models.CharField()
-
-
 class Order(models.Model):
-    user = models.ForeignKey(User, default=None)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(CartItem)
