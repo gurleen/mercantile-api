@@ -8,15 +8,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('address', '0003_auto_20200830_1851'),
-        ('store', '0001_initial'),
+        ("address", "0003_auto_20200830_1851"),
+        ("store", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='address',
-            field=address.models.AddressField(default=None, on_delete=django.db.models.deletion.CASCADE, to='address.address'),
+            model_name="order",
+            name="address",
+            field=address.models.AddressField(
+                default=None,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="address.address",
+            ),
             preserve_default=False,
         ),
     ]

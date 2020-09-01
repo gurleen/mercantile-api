@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from address.models import AddressField
 
+
 class Product(models.Model):
     name = models.CharField(max_length=50)
     brand = models.CharField(max_length=30)
