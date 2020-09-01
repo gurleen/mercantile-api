@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # third-party apps
     "address",
     "djmoney",
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [
