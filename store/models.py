@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from address.models import AddressField
+from djmoney.models.fields import MoneyField
 
 
 class Product(models.Model):
@@ -9,7 +10,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=30)
     description = models.TextField()
     quantity = models.IntegerField()
-    price = models.IntegerField()
+    price = MoneyField(max_digits=6, decimal_places=2, default_currency="USD")
 
 
 class ProductImage(models.Model):
