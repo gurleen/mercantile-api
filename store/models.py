@@ -12,6 +12,13 @@ class Product(models.Model):
     quantity = models.IntegerField()
     price = MoneyField(max_digits=6, decimal_places=2, default_currency="USD")
 
+    def __str__(self):
+        return f"{self.brand} {self.name} - {self.price} ({self.quantity})"
+
+    @property
+    def first_image(self):
+        return ProductImage.objects.filter(product=self).first()
+
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
