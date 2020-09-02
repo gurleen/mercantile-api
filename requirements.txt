@@ -6,7 +6,9 @@ Django==3.1.1
 django-address==0.2.5
 django-environ==0.4.5
 django-money==1.1
+django-rest-framework==0.1.0
 django-storages==1.8
+djangorestframework==3.11.1
 docutils==0.15.2
 importlib-metadata==1.7.0
 jmespath==0.10.0
