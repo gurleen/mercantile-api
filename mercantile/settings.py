@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # third-party apps
     "address",
     "djmoney",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,9 @@ STATIC_ROOT = "static"
 MEDIA_ROOT = "media"
 STATIC_URL = f"{AWS_S3_ENDPOINT_URL}/{STATIC_ROOT}/"
 MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
+
+# rest-framework
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
