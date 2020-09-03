@@ -11,8 +11,9 @@ router.register(r"product", views.ProductViewSet)
 router.register(r"images", views.ProductImageViewSet)
 router.register(r"cart", views.CartItemViewSet, basename="cart")
 router.register(r"address", views.AddressViewSet, basename="address")
+router.register(r"order", views.OrderViewSet, basename="order")
 
 urlpatterns = [
     path("", include(router.urls)),
-    url(r'^api-token-auth/', auth_views.obtain_auth_token)
+    url(r'^api-token-auth/', auth_views.obtain_auth_token),
 ]
