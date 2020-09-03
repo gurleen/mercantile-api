@@ -24,7 +24,6 @@ class CartItemSerializer(serializers.ModelSerializer):
         read_only_fields = ["id", "subtotal"]
 
     def create(self, validated_data):
-        print(validated_data)
         validated_data.update({
             "user": self.context.get("user")
         })
@@ -49,4 +48,4 @@ class CartItemSerializer(serializers.ModelSerializer):
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = ["address", "city", "state"]
+        fields = ["id", "address", "city", "state"]
