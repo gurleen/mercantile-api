@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "address",
     "djmoney",
     "rest_framework",
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -108,9 +109,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# django-address
-GOOGLE_API_KEY = env("GOOGLE_API_KEY")
-
 # django-storages
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
@@ -139,4 +137,7 @@ MEDIA_URL = f"{AWS_S3_ENDPOINT_URL}/{MEDIA_ROOT}/"
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }

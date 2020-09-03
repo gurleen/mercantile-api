@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from address.models import AddressField
 from djmoney.models.fields import MoneyField
 
 
@@ -42,8 +41,15 @@ class CartItem(models.Model):
         return self.product.price * self.amount
 
 
+class Address(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    address = AddressField()
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
     items = models.ManyToManyField(CartItem)
     status = models.CharField(max_length=15)
