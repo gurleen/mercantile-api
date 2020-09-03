@@ -16,7 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework import permissions
+from rest_framework.schemas import get_schema_view
 
-urlpatterns = [path("admin/", admin.site.urls), path("", include("store.urls"))]
+urlpatterns = [
+    path("admin/", admin.site.urls), path("", include("store.urls")),
+    path('openapi', get_schema_view(
+    title="Mercantile API",
+    description="Programmatic access to the Mercantile service.",
+    version="1.0.0",
+    permission_classes=(permissions.AllowAny,),
+    ), name='openapi-schema'),
+]
 
 urlpatterns += staticfiles_urlpatterns()
