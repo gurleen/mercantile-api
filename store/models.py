@@ -10,7 +10,7 @@ class ProductImage(models.Model):
     image = models.ImageField(upload_to="img/")
 
     def __str__(self):
-        return self.name    
+        return self.name
 
 
 class Product(models.Model):
@@ -37,7 +37,7 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"{self.amount}x {self.product.name} - {self.user}"
-    
+
     def subtotal(self):
         return self.product.price * self.amount
 

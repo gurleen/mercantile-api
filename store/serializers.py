@@ -17,6 +17,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 class CartItemSerializer(serializers.ModelSerializer):
     subtotal = MoneyField(max_digits=8, decimal_places=2)
+
     class Meta:
         model = CartItem
         fields = ["id", "product", "amount", "subtotal"]

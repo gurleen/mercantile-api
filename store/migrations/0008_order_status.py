@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('store', '0007_cartitem_user'),
+        ("store", "0007_cartitem_user"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='status',
-            field=models.CharField(default='test', max_length=15),
+            model_name="order",
+            name="status",
+            field=models.CharField(default="test", max_length=15),
             preserve_default=False,
         ),
     ]
