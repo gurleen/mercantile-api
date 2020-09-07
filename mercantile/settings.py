@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # our apps
     "store",
     # third-party apps
+    "drf_yasg",
     "address",
     "djmoney",
     "rest_framework",
@@ -144,4 +145,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+# drf-yasg
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
 }
